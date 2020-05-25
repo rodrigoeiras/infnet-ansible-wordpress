@@ -1,0 +1,10 @@
+---
+- hosts: wordpress
+  become: yes
+  remote_user: eiras
+
+  roles:
+    - server
+    - php
+    - mysql
+    - wordpress

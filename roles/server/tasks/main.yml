@@ -1,0 +1,17 @@
+---
+# tasks file for server
+
+- name: Atualiza apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  become: yes
+
+- name: Instalar pacotes do servidor
+  apt: name={{ item }} state=present
+  become: yes
+  with_items:
+    - apache2
+    - mysql-server
+    - php7.3-mysql
+    - php7.3
+    - libapache2-mod-php7.3
+    - python-mysqldb
